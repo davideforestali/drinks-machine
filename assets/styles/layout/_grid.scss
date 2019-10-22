@@ -1,0 +1,25 @@
+
+.container,
+.container--fluid {
+  width: 100%;
+  padding: 0 $spacer;
+  margin: 0 auto;
+}
+
+.container {
+  @include make-container-max-width;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$spacer};
+}
+
+// Columns
+
+/* The make-columns mixin creates classes like .grid__col-sm 
+and so on because they're Elements of the .grid Block. 
+You can see all the classes created on the css output. */
+@include make-columns;
+

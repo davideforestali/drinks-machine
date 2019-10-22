@@ -1,0 +1,16 @@
+
+.btn-primary {
+  @include btn-base;
+  @include btn-hover-effect-reflection;
+}
+
+.btn-hollow-white {
+  @include btn-base(transparent, $white, $white);
+  @include btn-hover-effect-slide-fill($white, $black);
+}
+
+.btn-hollow-black {
+  @include btn-base(transparent, $black, $black);
+  @include btn-hover-effect-slide-fill($black, $white);
+}
+

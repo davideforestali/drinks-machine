@@ -1,0 +1,2 @@
+
+- To do: further improvement such as adding sounds or other actions like  actually dropping a slice of lemon when the step occurs

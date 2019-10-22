@@ -1,0 +1,45 @@
+/* 
+Notes: 
+- The infrastructure (grid, layout, etc) is inspired by Boostrap 4 but simplified.
+- margin-top are avoided. Vertical margins can collapse, yielding 
+  unexpected results. Also a single direction of margin is a simpler mental model. 
+*/
+
+// VENDOR
+/* CSS files from external libraries and frameworks
+like Normalize, Bootstrap, jQueryUI, Slick and so on */
+@import
+'vendor/normalize';
+
+// UTILTIES
+// Helpful and common utilities, Sass that doesn’t result in compiled CSS 
+@import
+'utilities/settings',
+'utilities/mixins';
+
+// BASE
+// The boilerplate code, resets and base standard styles that apply throughout the project
+@import 
+'base/base',
+'base/typography';
+
+
+// COMPONENTS
+// Minor/Micro layouts, elements throughout the site in any location
+@import 
+'components/buttons', 
+'components/drink-machine';
+
+// LAYOUT
+/* Major/Macro layout, the big stuff, the site wire-frame, the place to define the 
+containers that will eventually be filled up with our components */
+@import 
+'layout/grid',
+'layout/header',
+'layout/footer';
+
+// PAGES
+// For page specific styles
+@import
+'pages/home';
+

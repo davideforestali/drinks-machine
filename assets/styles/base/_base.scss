@@ -1,0 +1,159 @@
+// Base + Personal resets in addition to Normalize.
+
+html {
+  position: relative;
+  min-height: 100%;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Change the default tap highlight to be transparent
+}
+
+// Inheriting box sizing from html
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// Render the `new` html elements consistently in IE.
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+/* Suppress the focus outline on elements that cannot be accessed via keyboard.
+This prevents an unwanted focus outline from appearing around elements that
+might still respond to pointer events.
+Ref: https://github.com/suitcss/base */
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+a {
+  &:hover,
+  &:focus,
+  &:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // TO DO: check if you need it cuz theres already in body
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Workaround for the SVG overflow bug in IE10/11 is still required.
+See https://github.com/twbs/bootstrap/issues/26878 */
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $grey;
+}
+
+table {
+  border-collapse: collapse; // Prevent double borders
+}
+
+/* Remove the default `border-radius` that macOS Chrome adds.
+Ref: https://github.com/twbs/bootstrap/issues/24093 */
+button {
+  border-radius: 0;
+}
+
+/* Work around a Firefox/IE bug where the transparent `button` background
+results in a loss of the default `button` focus styles.
+Ref: https://github.com/suitcss/base/ */
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+// Resets form items, removing all borders and radiuses (including checkboxes and radios)
+// TO DO. to check with accessibility
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+} 
+
+// Textareas should only resize vertically to not break their (horizontal) containers
+textarea {
+  resize: vertical;
+}
+
+/* Remove the default appearance of temporal inputs to avoid a Mobile Safari
+bug where setting a custom line-height prevents text from being vertically
+centered within the input.
+See https://bugs.webkit.org/show_bug.cgi?id=139848
+and https://github.com/twbs/bootstrap/issues/11266 */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+/* fix chrome yellow bg when autofill is active */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 #{rem(1000px)} $white inset !important;
+}

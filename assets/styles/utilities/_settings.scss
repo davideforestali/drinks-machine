@@ -1,0 +1,157 @@
+
+// All the variables
+
+// COLORS
+
+$white: #FFF;
+$black: #000;
+$black-light: #333;
+$grey: #404040;
+$grey-light: #636363;
+$grey-light2: #d8d8d8;
+$brown: #541d00;
+$orange:  #de8203;
+
+// FONT
+
+$font-primary: 'Oswald', cursive;
+$line-height-base: 1.5;
+
+// font sizes
+/* After many researches about typography modular scale and how it should be used,
+(ref: https://www.creativebloq.com/how-to/the-rules-of-responsive-web-typography),
+I decided not to precisely follow a ratio scale, but rather get inspired by a ratio,
+and keeping numbers simple and without many decimals. Ratio here is 1.2 */
+
+$font-size-base: 1rem; // rem makes it scalable. default is 16px on browsers
+
+$font-size-display1: 7rem;
+$font-size-display2: 6rem;
+$font-size-display3: 5rem;
+$font-size-display4: 4rem;
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: $font-size-base;
+
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.75rem;
+
+// font weight
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// SPACING
+
+/* After many researches about Vertical Rythm concept and how it should be implemented
+using spaces and line heights based on the root line height (ref: https://zellwk.com/blog/why-vertical-rhythms/),
+I realized, with the help of this other article https://zellwk.com/blog/web-typography-broken/, 
+that the most important thing is Repetition, which doens't mean spaces must be multiples 
+of the root line height (which comes with many manual calculations, or the use of a external tool), 
+but any other number is fine, so I decided to use the multiple of the root font size, and consequently
+I also decided not to use ems for spacing since again, it'd lead to many calculations, hence I use rems,
+cause I prefer the semplicity of calculations they come with, over the scalability ems can provide.*/
+
+$spacer: 1rem;
+
+$spacer-1: 0.25rem;
+$spacer-2: 0.5rem;
+$spacer-3: 0.75rem;
+$spacer: $spacer;
+$spacer-4: 1.5rem;
+$spacer-5: 2rem;
+$spacer-6: 2.5rem;
+$spacer-7: 3rem;
+$spacer-8: 4rem;
+$spacer-9: 5rem;
+
+$header-height: 98px;
+$header-height-mobile: 70px;
+
+// LAYOUT	
+
+// Breakpoints 
+/* I use px for bp, here's why https://adamwathan.me/dont-use-em-for-media-queries/ 
+Note: don't change the key names because they're use to create 
+container-max-widths (see below map) and columns (like col-md, see @mixin make-columns) */
+$breakpoints: (
+	'small-320': 320px,
+	'sm': 576px,
+	'md': 768px,
+	'lg' : 992px,
+	'xl' : 1200px
+);
+
+// Containers
+// the keys must match with the keys of $breakpoints
+$container-max-widths: (
+	'sm': 540px,
+	'md': 720px,
+	'lg': 960px,
+	'xl': 1140px
+);
+
+// GRID
+
+$grid-columns: 12;
+
+// TRANSITIONS 
+
+$transition-base: all 0.3s ease-in-out;
+$transition-height: max-height 0.3s ease-in-out;
+$transition-bg: background-color 0.3s ease-in-out;
+$transition-color: color 0.3s ease-in-out;
+$transition-fill: fill 0.3s ease-in-out;
+$transition-stroke: stroke 0.3s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+$transition-collapse: height 0.35s ease;
+$transition-cubic-bezier: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+
+// Z-INDEX LAYERS
+
+$z-layers: (
+	'under-all': -1,
+	'default': 1,
+	'top': 2
+);
+
+// ANIMATIONS
+
+@keyframes pouring {
+	0% { top: -800%; }
+	10% { top: -650%; }
+	90% {top: -100%}
+	100% { top: 100%; }
+}
+
+@keyframes dots {
+	0%, 20% {
+	  color: rgba(0,0,0,0);
+	  text-shadow:
+		.25em 0 0 rgba(0,0,0,0),
+		.5em 0 0 rgba(0,0,0,0);
+	}
+	40% {
+	  color: white;
+	  text-shadow:
+		.25em 0 0 rgba(0,0,0,0),
+		.5em 0 0 rgba(0,0,0,0);
+	}
+	60% {
+	  text-shadow:
+		.25em 0 0 white,
+		.5em 0 0 rgba(0,0,0,0);
+	}
+	80%, 100% {
+	  text-shadow:
+		.25em 0 0 white,
+		.5em 0 0 white;
+	}
+}
+  
+
+  
+

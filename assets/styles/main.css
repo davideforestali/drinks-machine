@@ -1,0 +1,1610 @@
+/* 
+Notes: 
+- The infrastructure (grid, layout, etc) is inspired by Boostrap 4 but simplified.
+- margin-top are avoided. Vertical margins can collapse, yielding 
+  unexpected results. Also a single direction of margin is a simpler mental model. 
+*/
+/* CSS files from external libraries and frameworks
+like Normalize, Bootstrap, jQueryUI, Slick and so on */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none; }
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none; }
+
+/* After many researches about typography modular scale and how it should be used,
+(ref: https://www.creativebloq.com/how-to/the-rules-of-responsive-web-typography),
+I decided not to precisely follow a ratio scale, but rather get inspired by a ratio,
+and keeping numbers simple and without many decimals. Ratio here is 1.2 */
+/* After many researches about Vertical Rythm concept and how it should be implemented
+using spaces and line heights based on the root line height (ref: https://zellwk.com/blog/why-vertical-rhythms/),
+I realized, with the help of this other article https://zellwk.com/blog/web-typography-broken/, 
+that the most important thing is Repetition, which doens't mean spaces must be multiples 
+of the root line height (which comes with many manual calculations, or the use of a external tool), 
+but any other number is fine, so I decided to use the multiple of the root font size, and consequently
+I also decided not to use ems for spacing since again, it'd lead to many calculations, hence I use rems,
+cause I prefer the semplicity of calculations they come with, over the scalability ems can provide.*/
+/* I use px for bp, here's why https://adamwathan.me/dont-use-em-for-media-queries/ 
+Note: don't change the key names because they're use to create 
+container-max-widths (see below map) and columns (like col-md, see @mixin make-columns) */
+@keyframes pouring {
+  0% {
+    top: -800%; }
+  10% {
+    top: -650%; }
+  90% {
+    top: -100%; }
+  100% {
+    top: 100%; } }
+@keyframes dots {
+  0%, 20% {
+    color: transparent;
+    text-shadow: 0.25em 0 0 transparent, 0.5em 0 0 transparent; }
+  40% {
+    color: white;
+    text-shadow: 0.25em 0 0 transparent, 0.5em 0 0 transparent; }
+  60% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 transparent; }
+  80%, 100% {
+    text-shadow: .25em 0 0 white, .5em 0 0 white; } }
+/* if the button is hollow, include it with the button color as the 
+argument, e.g. @include btn-hover-effect-reflection($btn-secondary) */
+/* Only display content to screen readers.
+Ref: https://a11yproject.com/posts/how-to-hide-content/
+and https://hugogiraudel.com/2016/10/13/css-hide-and-seek/ */
+/* To use in conjunction with sr-only to only display content when it's focused.
+Useful for "Skip to main content" links. see https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1 */
+html {
+  position: relative;
+  min-height: 100%;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-size: 14px; }
+
+body {
+  background-color: #FFF;
+  color: #000;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block; }
+
+/* Suppress the focus outline on elements that cannot be accessed via keyboard.
+This prevents an unwanted focus outline from appearing around elements that
+might still respond to pointer events.
+Ref: https://github.com/suitcss/base */
+[tabindex="-1"]:focus {
+  outline: 0 !important; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+p {
+  margin: 0; }
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+  list-style: none; }
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0; }
+
+a:hover, a:focus, a:active {
+  -webkit-tap-highlight-color: transparent; }
+
+img {
+  vertical-align: middle; }
+
+/* Workaround for the SVG overflow bug in IE10/11 is still required.
+See https://github.com/twbs/bootstrap/issues/26878 */
+svg {
+  overflow: hidden;
+  vertical-align: middle; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #404040; }
+
+table {
+  border-collapse: collapse; }
+
+/* Remove the default `border-radius` that macOS Chrome adds.
+Ref: https://github.com/twbs/bootstrap/issues/24093 */
+button {
+  border-radius: 0; }
+
+/* Work around a Firefox/IE bug where the transparent `button` background
+results in a loss of the default `button` focus styles.
+Ref: https://github.com/suitcss/base/ */
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color; }
+
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none; }
+  input:hover, input:active, input:focus,
+  textarea:hover,
+  textarea:active,
+  textarea:focus,
+  button:hover,
+  button:active,
+  button:focus {
+    outline: none; }
+
+textarea {
+  resize: vertical; }
+
+/* Remove the default appearance of temporal inputs to avoid a Mobile Safari
+bug where setting a custom line-height prevents text from being vertically
+centered within the input.
+See https://bugs.webkit.org/show_bug.cgi?id=139848
+and https://github.com/twbs/bootstrap/issues/11266 */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox; }
+
+/* fix chrome yellow bg when autofill is active */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 rem(1000px) #FFF inset !important; }
+
+body {
+  font-family: "Oswald", cursive;
+  line-height: 1.5; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.drink-machine__message {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  line-height: 1.125; }
+
+h1 {
+  font-size: 2.5rem; }
+
+h2 {
+  font-size: 2rem; }
+
+h3 {
+  font-size: 1.75rem; }
+
+h4 {
+  font-size: 1.5rem; }
+
+h5,
+.drink-machine__message {
+  font-size: 1.25rem; }
+
+h6 {
+  font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem; }
+
+.btn-primary {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #000;
+  color: #FFF;
+  border: 1px solid #000;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Oswald", cursive;
+  cursor: pointer;
+  overflow: hidden; }
+  .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    text-decoration: none; }
+  .btn-primary:disabled, .btn-primary[aria-disabled=true] {
+    opacity: 0.5;
+    cursor: default; }
+  .btn-primary:after {
+    background-color: #FFF;
+    content: "";
+    height: 10rem;
+    width: 4rem;
+    left: -6rem;
+    opacity: 0.2;
+    position: absolute;
+    top: -130%;
+    transform: rotate(35deg);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .btn-primary:not(:disabled):hover:after {
+    left: calc(100% + 3rem);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+
+.btn-hollow-white {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  color: #FFF;
+  border: 1px solid #FFF;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Oswald", cursive;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease-in-out; }
+  .btn-hollow-white:hover, .btn-hollow-white:active, .btn-hollow-white:focus {
+    text-decoration: none; }
+  .btn-hollow-white:disabled, .btn-hollow-white[aria-disabled=true] {
+    opacity: 0.5;
+    cursor: default; }
+  .btn-hollow-white:before {
+    content: "";
+    position: absolute;
+    background-color: #FFF;
+    height: calc(100% + 6px);
+    bottom: 0;
+    left: -3px;
+    right: calc(100% + 3px);
+    top: -3px;
+    z-index: -1;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .btn-hollow-white:hover {
+    color: #000;
+    transition: color 0.3s ease-in-out; }
+    .btn-hollow-white:hover:before {
+      right: -3px; }
+
+.btn-hollow-black {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Oswald", cursive;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s ease-in-out; }
+  .btn-hollow-black:hover, .btn-hollow-black:active, .btn-hollow-black:focus {
+    text-decoration: none; }
+  .btn-hollow-black:disabled, .btn-hollow-black[aria-disabled=true] {
+    opacity: 0.5;
+    cursor: default; }
+  .btn-hollow-black:before {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    height: calc(100% + 6px);
+    bottom: 0;
+    left: -3px;
+    right: calc(100% + 3px);
+    top: -3px;
+    z-index: -1;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .btn-hollow-black:hover {
+    color: #FFF;
+    transition: color 0.3s ease-in-out; }
+    .btn-hollow-black:hover:before {
+      right: -3px; }
+
+.drink-machine {
+  width: 40rem;
+  background-color: #404040;
+  border-radius: 4px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  margin-top: 4rem;
+  position: relative; }
+  .drink-machine:after {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -25px;
+    background: linear-gradient(0deg, #636363 0%, #333333 100%); }
+  .drink-machine__screen {
+    background-color: #333;
+    padding: 5rem 2rem 2rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 2px solid #636363; }
+    .drink-machine__screen--active .drink-machine__message {
+      font-size: 1.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 500ms; }
+    .drink-machine__screen--active .drink-machine__option {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 400ms; }
+    .drink-machine__screen:after {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -60px;
+      width: 280px;
+      height: 400px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+      transform: rotate(-35deg);
+      pointer-events: none; }
+  .drink-machine__message {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    transition: all 500ms; }
+    .drink-machine__message--active:after {
+      content: ' .';
+      animation: dots 1s steps(5, end) infinite; }
+  .drink-machine__options {
+    display: flex;
+    justify-content: space-around; }
+  .drink-machine__option {
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem;
+    cursor: pointer;
+    color: #FFF;
+    text-shadow: 1px 1px 8px #00000070;
+    box-shadow: 1px 1px 10px #00000075;
+    font-size: 1.5rem;
+    transition: opacity 400ms; }
+  .drink-machine__cup-container {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 8rem 0 0;
+    margin-top: 3rem;
+    box-shadow: 1px 1px 20px inset #0000006e;
+    position: relative;
+    overflow: hidden;
+    background-color: #636363; }
+    .drink-machine__cup-container:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 2.5rem;
+      height: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      background-color: black;
+      background: linear-gradient(90deg, #2a2a2a 0%, #717171 53%, #2a2a2a 100%); }
+  .drink-machine__pouring {
+    width: 1rem;
+    height: 800%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -800%;
+    border-radius: 40%;
+    background-color: #541d00; }
+    .drink-machine__pouring--active {
+      top: 100%;
+      animation: pouring 4s; }
+    .drink-machine__pouring--orange {
+      background-color: #de8203; }
+  .drink-machine__cup {
+    position: relative;
+    width: 8rem;
+    height: 10rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto;
+    clip-path: polygon(0 0%, 100% 0, 85% 100%, 15% 100%);
+    -webkit-clip-path: polygon(0 0%, 100% 0, 85% 100%, 15% 100%); }
+    .drink-machine__cup:before {
+      content: "";
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 1px 1px 2px #0000002b;
+      position: absolute;
+      width: 100%;
+      height: 1.5rem;
+      top: 0; }
+  .drink-machine__filling {
+    content: '';
+    background-color: #eee9e6;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0; }
+    .drink-machine__filling--active {
+      height: 75%;
+      transition: height 4s; }
+    .drink-machine__filling--orange {
+      background-color: #fcf3e6; }
+
+.tea {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/tea-lemon-cups.jpg") no-repeat center center;
+  background-size: cover; }
+
+.coffee {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/coffee-grounds.jpg") no-repeat center center;
+  background-size: cover; }
+
+.chocolate {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/chocolate.jpg") no-repeat center center;
+  background-size: cover; }
+
+/* Major/Macro layout, the big stuff, the site wire-frame, the place to define the 
+containers that will eventually be filled up with our components */
+.container,
+.container--fluid {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto; }
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px; } }
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px; } }
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px; } }
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px; } }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem; }
+
+/* The make-columns mixin creates classes like .grid__col-sm 
+and so on because they're Elements of the .grid Block. 
+You can see all the classes created on the css output. */
+.grid__col-small-320-1 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-2 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-3 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-4 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-5 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-6 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-7 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-8 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-9 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-10 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-11 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320-12 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-small-320,
+.grid__col-small-320-auto {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+@media (min-width: 320px) {
+  .grid__col-small-320 {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+
+  .grid__col-small-320-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%; }
+
+  .grid__col-small-320-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+
+  .grid__col-small-320-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+
+  .grid__col-small-320-3 {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid__col-small-320-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+
+  .grid__col-small-320-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+
+  .grid__col-small-320-6 {
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid__col-small-320-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+
+  .grid__col-small-320-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+
+  .grid__col-small-320-9 {
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid__col-small-320-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+
+  .grid__col-small-320-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+
+  .grid__col-small-320-12 {
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid__offset-small-320-1 {
+    margin-left: 8.33333%; }
+
+  .grid__offset-small-320-2 {
+    margin-left: 16.66667%; }
+
+  .grid__offset-small-320-3 {
+    margin-left: 25%; }
+
+  .grid__offset-small-320-4 {
+    margin-left: 33.33333%; }
+
+  .grid__offset-small-320-5 {
+    margin-left: 41.66667%; }
+
+  .grid__offset-small-320-6 {
+    margin-left: 50%; }
+
+  .grid__offset-small-320-7 {
+    margin-left: 58.33333%; }
+
+  .grid__offset-small-320-8 {
+    margin-left: 66.66667%; }
+
+  .grid__offset-small-320-9 {
+    margin-left: 75%; }
+
+  .grid__offset-small-320-10 {
+    margin-left: 83.33333%; }
+
+  .grid__offset-small-320-11 {
+    margin-left: 91.66667%; }
+
+  .grid__offset-small-320-12 {
+    margin-left: 100%; } }
+.grid__col-sm-1 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-2 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-3 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-4 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-5 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-6 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-7 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-8 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-9 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-10 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-11 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm-12 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-sm,
+.grid__col-sm-auto {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+@media (min-width: 576px) {
+  .grid__col-sm {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+
+  .grid__col-sm-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%; }
+
+  .grid__col-sm-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+
+  .grid__col-sm-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+
+  .grid__col-sm-3 {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid__col-sm-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+
+  .grid__col-sm-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+
+  .grid__col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid__col-sm-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+
+  .grid__col-sm-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+
+  .grid__col-sm-9 {
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid__col-sm-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+
+  .grid__col-sm-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+
+  .grid__col-sm-12 {
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid__offset-sm-1 {
+    margin-left: 8.33333%; }
+
+  .grid__offset-sm-2 {
+    margin-left: 16.66667%; }
+
+  .grid__offset-sm-3 {
+    margin-left: 25%; }
+
+  .grid__offset-sm-4 {
+    margin-left: 33.33333%; }
+
+  .grid__offset-sm-5 {
+    margin-left: 41.66667%; }
+
+  .grid__offset-sm-6 {
+    margin-left: 50%; }
+
+  .grid__offset-sm-7 {
+    margin-left: 58.33333%; }
+
+  .grid__offset-sm-8 {
+    margin-left: 66.66667%; }
+
+  .grid__offset-sm-9 {
+    margin-left: 75%; }
+
+  .grid__offset-sm-10 {
+    margin-left: 83.33333%; }
+
+  .grid__offset-sm-11 {
+    margin-left: 91.66667%; }
+
+  .grid__offset-sm-12 {
+    margin-left: 100%; } }
+.grid__col-md-1 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-2 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-3 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-4 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-5 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-6 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-7 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-8 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-9 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-10 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-11 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md-12 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-md,
+.grid__col-md-auto {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+@media (min-width: 768px) {
+  .grid__col-md {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+
+  .grid__col-md-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%; }
+
+  .grid__col-md-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+
+  .grid__col-md-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+
+  .grid__col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid__col-md-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+
+  .grid__col-md-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+
+  .grid__col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid__col-md-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+
+  .grid__col-md-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+
+  .grid__col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid__col-md-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+
+  .grid__col-md-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+
+  .grid__col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid__offset-md-1 {
+    margin-left: 8.33333%; }
+
+  .grid__offset-md-2 {
+    margin-left: 16.66667%; }
+
+  .grid__offset-md-3 {
+    margin-left: 25%; }
+
+  .grid__offset-md-4 {
+    margin-left: 33.33333%; }
+
+  .grid__offset-md-5 {
+    margin-left: 41.66667%; }
+
+  .grid__offset-md-6 {
+    margin-left: 50%; }
+
+  .grid__offset-md-7 {
+    margin-left: 58.33333%; }
+
+  .grid__offset-md-8 {
+    margin-left: 66.66667%; }
+
+  .grid__offset-md-9 {
+    margin-left: 75%; }
+
+  .grid__offset-md-10 {
+    margin-left: 83.33333%; }
+
+  .grid__offset-md-11 {
+    margin-left: 91.66667%; }
+
+  .grid__offset-md-12 {
+    margin-left: 100%; } }
+.grid__col-lg-1 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-2 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-3 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-4 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-5 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-6 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-7 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-8 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-9 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-10 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-11 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg-12 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-lg,
+.grid__col-lg-auto {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+@media (min-width: 992px) {
+  .grid__col-lg {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+
+  .grid__col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%; }
+
+  .grid__col-lg-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+
+  .grid__col-lg-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+
+  .grid__col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid__col-lg-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+
+  .grid__col-lg-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+
+  .grid__col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid__col-lg-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+
+  .grid__col-lg-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+
+  .grid__col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid__col-lg-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+
+  .grid__col-lg-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+
+  .grid__col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid__offset-lg-1 {
+    margin-left: 8.33333%; }
+
+  .grid__offset-lg-2 {
+    margin-left: 16.66667%; }
+
+  .grid__offset-lg-3 {
+    margin-left: 25%; }
+
+  .grid__offset-lg-4 {
+    margin-left: 33.33333%; }
+
+  .grid__offset-lg-5 {
+    margin-left: 41.66667%; }
+
+  .grid__offset-lg-6 {
+    margin-left: 50%; }
+
+  .grid__offset-lg-7 {
+    margin-left: 58.33333%; }
+
+  .grid__offset-lg-8 {
+    margin-left: 66.66667%; }
+
+  .grid__offset-lg-9 {
+    margin-left: 75%; }
+
+  .grid__offset-lg-10 {
+    margin-left: 83.33333%; }
+
+  .grid__offset-lg-11 {
+    margin-left: 91.66667%; }
+
+  .grid__offset-lg-12 {
+    margin-left: 100%; } }
+.grid__col-xl-1 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-2 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-3 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-4 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-5 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-6 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-7 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-8 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-9 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-10 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-11 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl-12 {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+.grid__col-xl,
+.grid__col-xl-auto {
+  position: relative;
+  width: 100%;
+  padding: 0 1rem; }
+
+@media (min-width: 1200px) {
+  .grid__col-xl {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+
+  .grid__col-xl-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%; }
+
+  .grid__col-xl-1 {
+    flex: 0 0 8.33333%;
+    max-width: 8.33333%; }
+
+  .grid__col-xl-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%; }
+
+  .grid__col-xl-3 {
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid__col-xl-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+
+  .grid__col-xl-5 {
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%; }
+
+  .grid__col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid__col-xl-7 {
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%; }
+
+  .grid__col-xl-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%; }
+
+  .grid__col-xl-9 {
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid__col-xl-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%; }
+
+  .grid__col-xl-11 {
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%; }
+
+  .grid__col-xl-12 {
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid__offset-xl-1 {
+    margin-left: 8.33333%; }
+
+  .grid__offset-xl-2 {
+    margin-left: 16.66667%; }
+
+  .grid__offset-xl-3 {
+    margin-left: 25%; }
+
+  .grid__offset-xl-4 {
+    margin-left: 33.33333%; }
+
+  .grid__offset-xl-5 {
+    margin-left: 41.66667%; }
+
+  .grid__offset-xl-6 {
+    margin-left: 50%; }
+
+  .grid__offset-xl-7 {
+    margin-left: 58.33333%; }
+
+  .grid__offset-xl-8 {
+    margin-left: 66.66667%; }
+
+  .grid__offset-xl-9 {
+    margin-left: 75%; }
+
+  .grid__offset-xl-10 {
+    margin-left: 83.33333%; }
+
+  .grid__offset-xl-11 {
+    margin-left: 91.66667%; }
+
+  .grid__offset-xl-12 {
+    margin-left: 100%; } }
+
+/*# sourceMappingURL=main.css.map */
